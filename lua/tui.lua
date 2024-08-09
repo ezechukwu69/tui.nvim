@@ -36,7 +36,6 @@ M.start_tui = function()
     vim.fn.termopen(M.config.command)
 
     -- Optional: Set some buffer options
-    vim.api.nvim_buf_set_option(buf, 'buflisted', false)
     vim.api.nvim_buf_set_option(buf, 'filetype', 'tui')
 
     vim.cmd("startinsert")
@@ -52,8 +51,14 @@ M.start_tui = function()
 end
 
 M.setup = function(opts)
-  M.config = vim.tbl_extend('force', M.config, opts or {})
-  vim.api.nvim_create_user_command(M.config.editor_command, M.start_tui, {})
+    M.config = vim.tbl_extend('force', M.config, opts or {})
+    vim.api.nvim_create_user_command(M.config.editor_command, M.start_tui, {})
 end
+
+M.add_command = function(opts)
+    M.config = vim.tbl_extend('force', M.config, opts or {})
+    vim.api.nvim_create_user_command(M.config.editor_command, M.start_tui, {})
+end
+
 
 return M

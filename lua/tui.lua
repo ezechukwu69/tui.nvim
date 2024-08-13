@@ -33,7 +33,7 @@ M.start_tui = function(config)
     -- Optional: Set some buffer options
     vim.api.nvim_buf_set_option(buf, 'filetype', 'tui')
 
-    vim.api.nvim_buf_set_keymap(buf, 't', '<Esc>', '<Nop>', { noremap = true, silent = true })
+    -- vim.api.nvim_buf_set_keymap(buf, 't', '<Esc>', '<Nop>', { noremap = true, silent = true })
 
     vim.cmd("startinsert")
 
